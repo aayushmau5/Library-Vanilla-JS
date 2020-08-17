@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="heading">Book Library</h1>
+    </header>
+    <main>
+        <form class="book-form">
+            <div class="field">
+                <input type="text" class="form-control" id="title" placeholder="Book Title" required>
+                <label for="title" class="form-label">Book Title</label>
+            </div>
+            <div class="field">
+                <input type="text" class="form-control" id="author" placeholder="Book author" required>
+                <label for="author" class="form-label">Book Author</label>
+            </div>
+            <div class="field">
+                <input type="number" class="form-control" id="pages" placeholder="Book page" required>
+                <label for="pages" class="form-label">Pages</label>
+            </div>
+            <div class="field">
+                <input type="checkbox" id="read-input">
+                <label for="read-input" class="form-checkbox-label">Read</label>
+            </div>
+            <button type="submit" class="submitBtn">Submit</button>
+        </form>
+        <div class="book-container">
+            <table class="book-data">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="./objects.js"></script>
+</body>
+
+</html>

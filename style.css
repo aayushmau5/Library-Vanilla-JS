@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  background-color: rgb(179, 149, 210);
+  color: white;
+  padding: 2rem 0;
+}
+
+.heading {
+  font-size: 3rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.book-form {
+  width: 50%;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  display: inline-block;
+  border: 1px solid rgb(194, 194, 194);
+  padding: 3rem;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+}
+
+.field {
+  margin-bottom: 3rem;
+  transition: all 0.3s;
+}
+
+.form-control {
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid rgb(192, 190, 190);
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.form-control::placeholder {
+  color: transparent;
+}
+
+.form-control:focus {
+  border-color: rgb(133, 233, 138);
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-6rem) scale(0.8);
+}
+
+.form-label {
+  font-size: 2rem;
+  display: block;
+  color: #aaa;
+  margin-left: 1rem;
+  transform: translateY(-3rem);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+}
+
+.form-checkbox-label {
+  font-size: 2rem;
+  color: #aaa;
+  margin-left: 5px;
+}
+
+.submitBtn {
+  background-color: blueviolet;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: rgb(154, 62, 240);
+}
+
+.book-container {
+  width: 75%;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  font-size: 2rem;
+  padding: 4px;
+  color: gray;
+}
+
+td {
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 5px;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.deleteBtn {
+  border: none;
+  background-color: rgb(204, 96, 96);
+  font-size: 1.5rem;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.change-read {
+  cursor: pointer;
+}
