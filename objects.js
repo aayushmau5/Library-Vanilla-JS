@@ -54,24 +54,17 @@ function render() {
   });
 }
 
-function deleteRow(e) {
-  let bookindex = e.target.attributes["data-index"].value;
-  myLibrary.splice(bookindex, 1);
-  const parent = e.target.parentElement.parentElement;
-  parent.remove();
-}
-
-function toggleRead(e) {
-  if (e.target.innerText === "Yes") e.target.innerText = "No";
-  else e.target.innerText = "Yes";
-}
-
-function addListener() {
-  //Delete Button
-  const deleteBtn = document.querySelectorAll(".deleteBtn");
-  deleteBtn.forEach((btn) => btn.addEventListener("click", deleteRow));
-  const readSelect = document.querySelectorAll(".change-read");
-  readSelect.forEach((btn) => btn.addEventListener("click", toggleRead));
+//Delete and toggle read functionality
+function changeProperties(e) {
+  if (e.target.classList.contains("deleteBtn")) {
+    let bookindex = e.target.attributes["data-index"].value;
+    myLibrary.splice(bookindex, 1);
+    const parent = e.target.parentElement.parentElement;
+    parent.remove();
+  } else if (e.target.classList.contains("change-read")) {
+    if (e.target.innerText === "Yes") e.target.innerText = "No";
+    else e.target.innerText = "Yes";
+  }
 }
 
 //Display data after submitting.
@@ -84,7 +77,8 @@ function addBookToTable(book, index) {
     <td><span class="change-read">${read}<span></td>
     <td><button class="deleteBtn" data-index=${index}>X</button></td>`;
   table.appendChild(tr);
-  addListener();
 }
+
+table.addEventListener("click", changeProperties);
 
 render();
