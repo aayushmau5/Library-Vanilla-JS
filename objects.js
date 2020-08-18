@@ -1,14 +1,28 @@
 const form = document.querySelector(".book-form");
 const table = document.querySelector("tbody");
 
-//FORM VALUES
+//FORM SELECTOR
 const bookTitle = document.querySelector("#title");
 const bookAuthor = document.querySelector("#author");
 const bookPage = document.querySelector("#pages");
 const bookRead = document.querySelector("#read-input");
 
-let myLibrary = [];
+let myLibrary = [
+  {
+    bookName: "Sherlock",
+    author: "Arthur Conan Doyle",
+    pages: 220,
+    isRead: false,
+  },
+  {
+    bookName: "The Wind Rises",
+    author: "Ghibli",
+    pages: 160,
+    isRead: true,
+  },
+];
 
+//Constructor Function
 function Book(bookName, author, pages, isRead) {
   this.bookName = bookName;
   this.author = author;
@@ -16,7 +30,7 @@ function Book(bookName, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-// submitBtn.addEventListener("click", addBook);
+//Add data in the array and call the display book function.
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let newBook = new Book(
@@ -30,30 +44,21 @@ form.addEventListener("submit", (e) => {
   bookAuthor.value = "";
   bookPage.value = "";
   bookRead.checked = "";
-  render();
+  addBookToTable(newBook, myLibrary.length - 1);
 });
 
+//Display data present in array.
 function render() {
-  table.innerHTML = "";
   myLibrary.forEach((value, index) => {
-    let read = value.isRead ? "Yes" : "No";
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${value.bookName}</td>
-    <td>${value.author}</td>
-    <td>${value.pages}</td>
-    <td><span class="change-read">${read}<span></td>
-    <td><button class="deleteBtn" data-index=${index}>X</button></td>`;
-    table.appendChild(tr);
+    addBookToTable(value, index);
   });
-  addListener();
 }
 
 function deleteRow(e) {
-  // const parent = e.target.parentElement.parentElement;
-  // parent.remove();
   let bookindex = e.target.attributes["data-index"].value;
   myLibrary.splice(bookindex, 1);
-  render();
+  const parent = e.target.parentElement.parentElement;
+  parent.remove();
 }
 
 function toggleRead(e) {
@@ -68,3 +73,18 @@ function addListener() {
   const readSelect = document.querySelectorAll(".change-read");
   readSelect.forEach((btn) => btn.addEventListener("click", toggleRead));
 }
+
+//Display data after submitting.
+function addBookToTable(book, index) {
+  let read = book.isRead ? "Yes" : "No";
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td>${book.bookName}</td>
+    <td>${book.author}</td>
+    <td>${book.pages}</td>
+    <td><span class="change-read">${read}<span></td>
+    <td><button class="deleteBtn" data-index=${index}>X</button></td>`;
+  table.appendChild(tr);
+  addListener();
+}
+
+render();
