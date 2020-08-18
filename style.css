@@ -144,3 +144,13 @@ th {
 .change-read {
   cursor: pointer;
 }
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .book-form {
+    width: 100%;
+  }
+  .book-container {
+    width: 100%;
+  }
+}
